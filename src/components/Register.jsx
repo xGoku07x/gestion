@@ -15,11 +15,30 @@ export const Register = () => {
         information : false
     })
 
+    
+    const isPasswordValid = (password) => {
+        if (password.length < 6) {
+            return false;
+        }
+        if (!/[A-Z]/.test(password)) {
+            return false;
+        }
+        if (!/[a-z]/.test(password)) {
+            return false;
+        }
+        if (!/\d/.test(password)) {
+            return false;
+        }
+        if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
+            return false;
+        }
+        return true;
+    };
+
+
     //to store value in localstorage
     const handleSubmit = (e) => {
-        e.preventDefault()
-
-        // Verifica que todos los campos, excepto el checkbox, estén llenos
+        e.preventDefault();
         if (
             input.name.trim() === "" ||
             input.lastname.trim() === "" ||
@@ -28,10 +47,11 @@ export const Register = () => {
             input.password.trim() === ""
         ) {
             alert("Por favor, completa todos los campos obligatorios.");
+        } else if (!isPasswordValid(input.password)) {
+            alert("La contraseña debe tener al menos 6 caracteres, incluir mayúsculas, minúsculas y caracteres especiales.");
         } else {
-            // Todos los campos están llenos, puedes proceder a almacenar en el localStorage y navegar
-            localStorage.setItem("user", JSON.stringify(input))
-            navigate('/login')
+            localStorage.setItem("user", JSON.stringify(input));
+            navigate('/login');
         }
     }
 
@@ -50,7 +70,7 @@ export const Register = () => {
                 <input type="checkbox" id="information" name="information" checked={input.information} onChange={(e) => setInput({...input,[e.target.name] : e.target.checked,})} />
                 <label htmlFor="information">Me gustaria recibir información, promociones y novedades <br /> relacionadas con la plataforma</label>
             </div>
-            <button>CREAR CUENTA</button>
+            <button>Registrarme</button>
         </form>
         <div className="redirect-login">
             <p>¿Ya tienes una cuenta?</p>

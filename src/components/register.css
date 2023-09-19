@@ -20,11 +20,13 @@ html{
 .name-input {
   display: flex;
   gap: 1rem;
+  width: 105%; /* Cambia el ancho al 100% para dispositivos móviles */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en dispositivos estrechos */
 }
 
 .name-input input {
+  flex: 1; /* Hace que los campos de entrada ocupen todo el ancho disponible */
   padding-left: 10px;
-  min-width: 165px;
 }
 
 .information-register {
@@ -68,4 +70,12 @@ input[type="checkbox"]:checked + label::before {
 
 .redirect-login {
   margin-top: -1.5rem!important ;
+}
+
+@media (max-width: 600px) {
+  .name-input {
+    flex-direction: column; /* Cambia la dirección de los elementos en columnas para dispositivos móviles */
+    gap: 0; /* Elimina el espacio entre los elementos en dispositivos móviles si es necesario */
+    display: contents;
+  }
 }
