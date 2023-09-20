@@ -1,5 +1,5 @@
 html{
-  overflow: hidden;
+  overflow: auto;
 }
 
 .section-register {
@@ -17,15 +17,19 @@ html{
   gap: 1rem;
 }
 
+.form-register input {
+  border: 1px solid #ccc;
+}
+
 .name-input {
   display: flex;
   gap: 1rem;
-  width: 105%; /* Cambia el ancho al 100% para dispositivos móviles */
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan en dispositivos estrechos */
+  width: 105%;
+  flex-wrap: wrap;
 }
 
 .name-input input {
-  flex: 1; /* Hace que los campos de entrada ocupen todo el ancho disponible */
+  flex: 1;
   padding-left: 10px;
 }
 
@@ -42,40 +46,42 @@ label {
 }
 
 input[type="checkbox"] {
-  position: absolute; /* Posición absoluta para que se superponga al chulito */
-  opacity: 0; /* Hace el checkbox invisible */
+  position: absolute;
+  opacity: 0;
   margin: 10%;
 }
 
-/* Estilo para el fondo del checkbox */
 input[type="checkbox"] + label::before {
-  content: ""; /* Añade contenido vacío para el fondo */
+  content: "";
   position: absolute;
   left: 0;
   top: 6px;
-  width: 20px; /* Ancho del fondo */
-  height: 20px; /* Alto del fondo */
-  background-color: white; /* Fondo blanco */
-  border: 1px solid black; /* Borde negro */
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 1px solid black;
 }
 
-/* Estilo para el chulito cuando el checkbox está marcado */
 input[type="checkbox"]:checked + label::before {
-  content: "✔"; /* Agrega el chulito cuando el checkbox está marcado */
-  font-size: 16px; /* Tamaño de la fuente del chulito */
-  color: black; /* Color del chulito */
-  line-height: 20px; /* Alinea verticalmente el chulito */
-  text-align: center; /* Alinea horizontalmente el chulito */
+  content: "✔";
+  font-size: 16px;
+  color: black;
+  line-height: 20px;
+  text-align: center;
 }
 
 .redirect-login {
   margin-top: -1.5rem!important ;
 }
 
+p {
+  border-bottom: none;
+}
+
 @media (max-width: 600px) {
   .name-input {
-    flex-direction: column; /* Cambia la dirección de los elementos en columnas para dispositivos móviles */
-    gap: 0; /* Elimina el espacio entre los elementos en dispositivos móviles si es necesario */
+    flex-direction: column;
+    gap: 0;
     display: contents;
   }
 }

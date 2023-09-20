@@ -14,31 +14,28 @@ export const Register = () => {
         password : "",
         information : false
     })
-
     
     const isPasswordValid = (password) => {
         if (password.length < 6) {
-            return false;
+            return false
         }
         if (!/[A-Z]/.test(password)) {
-            return false;
+            return false
         }
         if (!/[a-z]/.test(password)) {
-            return false;
+            return false
         }
         if (!/\d/.test(password)) {
-            return false;
+            return false
         }
         if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
-            return false;
+            return false
         }
-        return true;
-    };
+        return true
+    }
 
-
-    //to store value in localstorage
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         if (
             input.name.trim() === "" ||
             input.lastname.trim() === "" ||
@@ -46,12 +43,22 @@ export const Register = () => {
             input.email.trim() === "" ||
             input.password.trim() === ""
         ) {
-            alert("Por favor, completa todos los campos obligatorios.");
+            alert("Por favor, completa todos los campos obligatorios.")
         } else if (!isPasswordValid(input.password)) {
-            alert("La contraseña debe tener al menos 6 caracteres, incluir mayúsculas, minúsculas y caracteres especiales.");
+            alert("La contraseña debe tener al menos 6 caracteres, incluir mayúsculas, minúsculas y caracteres especiales.")
         } else {
-            localStorage.setItem("user", JSON.stringify(input));
-            navigate('/login');
+            const existingUsers = JSON.parse(localStorage.getItem("users")) || []
+            const isIdExist = existingUsers.some(user => user.id === input.id)
+            const isEmailExist = existingUsers.some(user => user.email === input.email)
+            if (isIdExist) {
+                alert("El ID ya está registrado.")
+            } else if (isEmailExist) {
+                alert("El correo electrónico ya está registrado. Por favor, utiliza otro.")
+            } else {
+                existingUsers.push(input)
+                localStorage.setItem("users", JSON.stringify(existingUsers))
+                navigate('/login')
+            }
         }
     }
 
@@ -74,7 +81,7 @@ export const Register = () => {
         </form>
         <div className="redirect-login">
             <p>¿Ya tienes una cuenta?</p>
-            <Link to="/login">Ingresar</Link>
+            <Link to="/login">Ingresar!</Link>
         </div>
     </section>
   )

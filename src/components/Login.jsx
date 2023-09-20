@@ -13,9 +13,13 @@ export const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    const loggeduser = JSON.parse(localStorage.getItem("user"))
-    if(input.email == loggeduser.email && input.password == loggeduser.password) {
-      localStorage.setItem("loggedin",true)
+
+    const registeredUsers = JSON.parse(localStorage.getItem("users")) || []
+    const user = registeredUsers.find((user) => user.email === input.email && user.password === input.password)
+
+    if (user) {
+      localStorage.setItem("loggedin", true)
+      localStorage.setItem("user", JSON.stringify(user))
       navigate("/")
     } else {
       alert('Wrong Email or Password')
@@ -24,11 +28,11 @@ export const Login = () => {
 
   return (
     <section className='section-login'>
-            <h1>Login</h1>
+            <h1>Iniciar sesión</h1>
             <form className='form-login' onSubmit={handleLogin}>
               <input 
                 type="email" 
-                placeholder="Email"
+                placeholder="Correo electrónico"
                 name="email" 
                 value={input.email} 
                 onChange={(e) => 
@@ -40,7 +44,7 @@ export const Login = () => {
               />
               <input 
                 type="password" 
-                placeholder="password"
+                placeholder="Contraseña"
                 name="password" 
                 value={input.password} 
                 onChange={(e) => 
@@ -50,10 +54,12 @@ export const Login = () => {
                     })
                 } 
               />
-              <button>Login</button>
+              <button>Ingresar</button>
             </form>
-            <p>Don't have an account?</p>
-            <Link to="/register">Register here!</Link>
+            <div className="redirect-register">
+              <p>¿No tienes cuenta?</p>
+              <Link to="/register">Registrarse!</Link>
+            </div>
         </section>
   )
 }

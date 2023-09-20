@@ -1,6 +1,56 @@
 .container-home {
+    padding-top: 5%;
+    padding-bottom: 25%;
+    width: 100%;
+    height: 100vh;
     display:flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    align-items: flex-start;
+}
+
+.info-edit {
+    display: flex ;
+}
+
+.btn-edit {
+    border-radius: 10px;
+    border: 1px solid transparent;
+    padding: .4em 3.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #0978EA;
+    color: white;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    margin-left: 500px;
+    height: 2.5em;
+}
+
+.basic-info {
+    width: 100%;
+}
+
+.basic-info p {
+    border-bottom: 1px solid #ccc;
+}
+
+.additional-info {
+    width: 100%;
+}
+
+.additional-info p {
+    border-bottom: 1px solid #ccc;
+}
+
+.user-image {
+    width: 100px;
+    height: auto;
+}
+
+.container-home h1,
+.container-home h3,
+.container-home h4,
+.container-home p {
+  text-align: left;
 }

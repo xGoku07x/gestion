@@ -1,14 +1,26 @@
 .section-login {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
 }
 
-.form-login{
-    display:flex;
-    justify-content: center;
+.form-login {
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
 }
+
+/* Estilos para los inputs */
+.form-login input {
+    width: 203%; /* Ancho del 100% para que ocupe todo el contenedor */
+    padding: 0.5rem; /* Espacio interior alrededor del texto en los inputs */
+    margin-bottom: 0.5rem; /* Espacio entre los inputs */
+    border: 1px solid #ccc; /* Borde para los inputs */
+    border-radius: 4px; /* Borde redondeado */
+}
+
+.redirect-register {
+    margin-top: -1.5rem!important ;
+  }
