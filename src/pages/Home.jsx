@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 export const Home = () => {
 
-  const loggedInUserId = localStorage.getItem("loggedin");
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-  const loggedInUser = users.find((user) => user.id === loggedInUserId);
+  const loggedInUserId = localStorage.getItem("loggedin")
+  const users = JSON.parse(localStorage.getItem("users")) || []
+  const loggedInUser = users.find((user) => user.id === loggedInUserId)
 
   const userName = JSON.parse(localStorage.getItem("user"))
 

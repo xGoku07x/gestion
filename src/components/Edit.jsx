@@ -1,19 +1,13 @@
 import { Link } from 'react-router-dom'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './edit.css'
 
 export default function Edit() {
 
-  // Obtén el identificador del usuario que inició sesión desde el local storage
-  const loggedInUserId = localStorage.getItem("loggedin");
+  const loggedInUserId = localStorage.getItem("loggedin")
+  const users = JSON.parse(localStorage.getItem("users")) || []
+  const loggedInUser = users.find((user) => user.id === loggedInUserId)
 
-  // Obtén los datos de todos los usuarios registrados
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-
-  // Encuentra al usuario que coincide con el identificador de sesión
-  const loggedInUser = users.find((user) => user.id === loggedInUserId);
-
-  // Establece el estado inicial con los datos del usuario que inició sesión
   const [userData, setUserData] = useState(loggedInUser || {
     id: "",
     name: "",
@@ -23,27 +17,23 @@ export default function Edit() {
     contactInfo: "",
     frecuentPlace: "",
     paymentMethod: ""
-  });
+  })
 
-  // Maneja los cambios en los campos de entrada y actualiza el estado correspondiente
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
-  };
+    const { name, value } = e.target
+    setUserData({ ...userData, [name]: value })
+  }
 
-  // Maneja el clic en el botón "Guardar" para guardar los datos en el localStorage
   const handleSave = () => {
-    // Actualiza los datos del usuario en el array de usuarios
     const updatedUsers = users.map((user) => {
       if (user.id === loggedInUserId) {
-        return userData;
+        return userData
       }
-      return user;
-    });
+      return user
+    })
 
-    // Guarda los datos actualizados en el local storage
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
-  };
+    localStorage.setItem("users", JSON.stringify(updatedUsers))
+  }
 
   return (
     <section className='container-edit'>
@@ -123,7 +113,63 @@ export default function Edit() {
             onChange={handleInputChange}
           />
         </div>
+        <div className='additional-info-more'>
+          <div className='info-more'>
+            <h3>Integrantes</h3>
+            <button className='btn-more btn-more-integers' >
+              <img src="/src/assets/mas(1).png" alt="mas" className='more-icon' />
+            </button>
+          </div>
+          <div className='new-integer'>
+            <div>
+              <h4>Nombre del usuario</h4>
+              <input type="text" placeholder='xxxxxxxx xxxxxxx' />
+            </div>
+            <div>
+              <h4>Telefono del usuario</h4>
+              <input type="number" placeholder='xxxxxxxx' />
+            </div>
+          </div>
+        </div>
+        <div className='additional-info-more'>
+          <div className='info-more'>
+            <h3>Lugares favoritos</h3>
+            <button className='btn-more' >
+              <img src="/src/assets/mas(1).png" alt="mas" className='more-icon' />
+            </button>
+          </div>
+          <div className='new-integer'>
+            <div>
+              <h4>Nombre</h4>
+              <input type="text" placeholder='xxxxxxxx xxxxxxx' />
+            </div>
+            <div>
+              <h4>Ubicación</h4>
+              <input type="number" placeholder='xxxxxxxx' />
+            </div>
+          </div>
+        </div>
+        <div className='additional-info-more'>
+          <div className='info-more'>
+            <h3>Metodos de pago</h3>
+            <button className='btn-more' >
+              <img src="/src/assets/mas(1).png" alt="mas" className='more-icon' />
+            </button>
+          </div>
+          <div className='new-integer'>
+            <div>
+              <h4>Numero de la tarjeta</h4>
+              <input type="number" placeholder='xxxx xxxx xxxx 1234' />
+            </div>
+            <div>
+              <h4>Fecha de vencimiento</h4>
+              <input type="date" placeholder='xx/xx/xxxx' />
+            </div>
+          </div>
+          <h4>CVV</h4>
+          <input type="number" placeholder='xxx' />
+        </div>
       </div>
     </section>
-  );
+  )
 }
