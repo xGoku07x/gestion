@@ -1,8 +1,30 @@
 import './home.css'
+import { Link } from 'react-router-dom'
 
 export const Home = () => {
 
   const userName = JSON.parse(localStorage.getItem("user"))
+
+  const validationContactInfo = () => {
+    if (!userName.contactInfo) {
+      return <p>No hay datos ingresados</p>
+    }
+    return <p>{userName.contactInfo}</p>
+  }
+
+  const validationFrequentPlaces = () => {
+    if (!userName.frecuentPlace) {
+      return <p>No hay datos ingresados</p>
+    }
+    return <p>{userName.frecuentPlace}</p>
+  }
+
+  const validationPaymentMethods = () => {
+    if (!userName.paymentMethod) {
+      return <p>No hay datos ingresados</p>
+    }
+    return <p>{userName.paymentMethod}</p>
+  }
 
   return (
     <section className="container-home">
@@ -15,7 +37,7 @@ export const Home = () => {
       <div className='basic-info'>
         <div className='info-edit'>
           <h3>Información básica</h3>
-          <button className='btn-edit'>Editar</button>
+          <Link to={"/edit"} className='btn-edit'>Editar</Link>
         </div>
         <div>
           <h4>Identificación</h4>
@@ -34,15 +56,15 @@ export const Home = () => {
         <h3>Información adicional</h3>
         <div>
           <h4>Datos de contacto</h4>
-          <p>N/A</p>
+          {validationContactInfo()}
         </div>
         <div>
           <h4>Lugares frecuentes</h4>
-          <p>N/A</p>
+          {validationFrequentPlaces()}
         </div>
         <div>
           <h4>Métodos de pago</h4>
-          <p>N/A</p>
+          {validationPaymentMethods()}
         </div>
       </div>
     </section>

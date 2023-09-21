@@ -12,7 +12,10 @@ export const Register = () => {
         id : "",
         email : "",
         password : "",
-        information : false
+        information : false,
+        contactInfo : "",
+        frecuentPlace : "",
+        paymentMethod : ""
     })
     
     const isPasswordValid = (password) => {

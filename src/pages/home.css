@@ -1,6 +1,6 @@
 .container-home {
     padding-top: 5%;
-    padding-bottom: 25%;
+    padding-bottom: 30%;
     width: 100%;
     height: 100vh;
     display:flex;
@@ -9,13 +9,16 @@
 }
 
 .info-edit {
-    display: flex ;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 10px;
 }
 
 .btn-edit {
     border-radius: 10px;
     border: 1px solid transparent;
-    padding: .4em 3.2em;
+    padding: 1px 35px;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
@@ -23,8 +26,14 @@
     color: white;
     cursor: pointer;
     transition: border-color 0.25s;
-    margin-left: 500px;
-    height: 2.5em;
+    margin-left: 400px;
+    height: 25px;
+}
+
+.btn-edit:hover {
+    color: white;
+    border-color: white;
+    background-color: #085fa3
 }
 
 .basic-info {
