@@ -3,27 +3,31 @@ import { Link } from 'react-router-dom'
 
 export const Home = () => {
 
+  const loggedInUserId = localStorage.getItem("loggedin");
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const loggedInUser = users.find((user) => user.id === loggedInUserId);
+
   const userName = JSON.parse(localStorage.getItem("user"))
 
   const validationContactInfo = () => {
-    if (!userName.contactInfo) {
+    if (!loggedInUser.contactInfo) {
       return <p>No hay datos ingresados</p>
     }
-    return <p>{userName.contactInfo}</p>
+    return <p>{loggedInUser.contactInfo}</p>
   }
 
   const validationFrequentPlaces = () => {
-    if (!userName.frecuentPlace) {
+    if (!loggedInUser.frecuentPlace) {
       return <p>No hay datos ingresados</p>
     }
-    return <p>{userName.frecuentPlace}</p>
+    return <p>{loggedInUser.frecuentPlace}</p>
   }
 
   const validationPaymentMethods = () => {
-    if (!userName.paymentMethod) {
+    if (!loggedInUser.paymentMethod) {
       return <p>No hay datos ingresados</p>
     }
-    return <p>{userName.paymentMethod}</p>
+    return <p>{loggedInUser.paymentMethod}</p>
   }
 
   return (
@@ -41,15 +45,15 @@ export const Home = () => {
         </div>
         <div>
           <h4>Identificación</h4>
-          <p>{userName.id}</p>
+          <p>{loggedInUser.id}</p>
         </div>
         <div>
           <h4>Nombre</h4>
-          <p>{userName.name} {userName.lastname}</p>
+          <p>{loggedInUser.name} {loggedInUser.lastname}</p>
         </div>
         <div>
           <h4>Correo</h4>
-          <p>{userName.email}</p>
+          <p>{loggedInUser.email}</p>
         </div>
       </div>
       <div className='additional-info'>

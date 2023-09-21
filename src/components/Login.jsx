@@ -18,8 +18,7 @@ export const Login = () => {
     const user = registeredUsers.find((user) => user.email === input.email && user.password === input.password)
 
     if (user) {
-      localStorage.setItem("loggedin", true)
-      localStorage.setItem("user", JSON.stringify(user))
+      localStorage.setItem("loggedin", user.id)
       navigate("/")
     } else {
       alert('Wrong Email or Password')

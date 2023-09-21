@@ -46,6 +46,7 @@
 
 .additional-info {
     width: 100%;
+    padding-bottom: 150px;
 }
 
 .additional-info p {
@@ -63,3 +64,34 @@
 .container-home p {
   text-align: left;
 }
+
+@media screen and (max-width: 768px) {
+    .container-home {
+      padding-top: 10%;
+      padding-bottom: 10%;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .info-edit {
+      grid-template-columns: 1fr;
+      gap: 5px;
+      margin-left: 0;
+    }
+  
+    .btn-edit {
+      margin-left: 0;
+    }
+  
+    .user-image {
+      width: 80px;
+    }
+  }
+  
+  /* Estilos para dispositivos con un ancho máximo de 1024px (pantallas más grandes) */
+  @media screen and (max-width: 1024px) {
+    .container-home {
+      padding-top: 8%;
+      padding-bottom: 8%;
+    }
+  }
