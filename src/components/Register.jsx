@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import './register.css'
+import Swal from 'sweetalert2'
 
 export const Register = () => {
 
@@ -43,18 +44,64 @@ export const Register = () => {
             input.email.trim() === "" ||
             input.password.trim() === ""
         ) {
-            alert("Por favor, completa todos los campos obligatorios.")
+            Swal.fire({
+                title: 'Error!',
+                text: 'Por favor, completa todos los campos obligatorios',
+                icon: 'error',
+                confirmButtonText: 'Ok',
+                timer: '5000',
+                position: 'top',
+                background: 'black',
+                color: 'white'
+            })
         } else if (!isPasswordValid(input.password)) {
-            alert("La contraseña debe tener al menos 6 caracteres, incluir mayúsculas, minúsculas y caracteres especiales.")
+            Swal.fire({
+                title: 'Contraseña',
+                text: 'La contraseña debe tener al menos 6 caracteres, incluir mayúsculas, minúsculas y caracteres especiales',
+                icon: 'info',
+                confirmButtonText: 'Ok',
+                timer: '6000',
+                position: 'top',
+                background: 'black',
+                color: 'white'
+            })
         } else {
             const existingUsers = JSON.parse(localStorage.getItem("users")) || []
             const isIdExist = existingUsers.some(user => user.id === input.id)
             const isEmailExist = existingUsers.some(user => user.email === input.email)
             if (isIdExist) {
-                alert("El ID ya está registrado.")
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'El ID ya está registrado',
+                    icon: 'error',
+                    confirmButtonText: 'Ok',
+                    timer: '5000',
+                    position: 'top',
+                    background: 'black',
+                    color: 'white'
+                })
             } else if (isEmailExist) {
-                alert("El correo electrónico ya está registrado. Por favor, utiliza otro.")
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'El correo electrónico ya está registrado. Por favor, utiliza otro',
+                    icon: 'error',
+                    confirmButtonText: 'Ok',
+                    timer: '6000',
+                    position: 'top',
+                    background: 'black',
+                    color: 'white'
+                })
             } else {
+                Swal.fire({
+                    title: 'Exito!',
+                    text: 'Se ha registrado exitosamente',
+                    icon: 'success',
+                    confirmButtonText: 'Ok',
+                    timer: '5000',
+                    position: 'top',
+                    background: 'black',
+                    color: 'white'
+                })
                 existingUsers.push(input)
                 localStorage.setItem("users", JSON.stringify(existingUsers))
                 navigate('/login')

@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import "./editName.css";
+import Swal from "sweetalert2";
 
 export default function Editnombre() {
+  const navigate = useNavigate();
   const loggedInUserId = localStorage.getItem("loggedin");
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const loggedInUser = users.find((user) => user.id === loggedInUserId);
@@ -20,14 +22,38 @@ export default function Editnombre() {
   };
 
   const handleSave = () => {
+    if (!userData.name || !userData.lastname) {
+      Swal.fire({
+        title: "Error!",
+        text: "Los campos no pueden estar vacíos",
+        icon: "error",
+        confirmButtonText: "Ok",
+        timer: "5000",
+        position: "top",
+        background: "black",
+        color: "white",
+      });
+      return;
+    }
+
     const updatedUsers = users.map((user) => {
       if (user.id === loggedInUserId) {
         return userData;
       }
       return user;
     });
-
+    Swal.fire({
+      title: "Exito!",
+      text: "El nombre se ha actualizado exitosamente",
+      icon: "success",
+      confirmButtonText: "Ok",
+      timer: "5000",
+      position: "top",
+      background: "black",
+      color: "white",
+    });
     localStorage.setItem("users", JSON.stringify(updatedUsers));
+    navigate("/");
   };
 
   return (
@@ -58,9 +84,9 @@ export default function Editnombre() {
           </div>
         </div>
       </div>
-      <Link to={"/"} onClick={handleSave} className="btn-save-name">
+      <button onClick={handleSave} className="btn-save-name">
         Actualizar
-      </Link>
+      </button>
     </section>
   );
 }

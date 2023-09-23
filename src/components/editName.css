@@ -29,7 +29,7 @@
   color: white;
   cursor: pointer;
   transition: border-color 0.25s;
-  width: 65%; /* Ancho del 100% para adaptarse al contenedor */
+  width: 100%; /* Ancho del 100% para adaptarse al contenedor */
   margin-left: 1rem; /* Utilizamos una unidad relativa para el margen */
   text-align: center;
 }

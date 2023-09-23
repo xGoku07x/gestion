@@ -1,6 +1,7 @@
 import "./login.css";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -19,10 +20,29 @@ export const Login = () => {
     );
 
     if (user) {
+      Swal.fire({
+        title: "Exito!",
+        html: `¡Bienvenid@ <strong>${user.name}</strong>. Inició sesión correctamente`,
+        icon: "success",
+        confirmButtonText: "Ok",
+        timer: "7000",
+        position: "top",
+        background: "black",
+        color: "white",
+      });
       localStorage.setItem("loggedin", user.id);
       navigate("/");
     } else {
-      alert("Wrong Email or Password");
+      Swal.fire({
+        title: "Error!",
+        text: "Correo o contraseña incorrecta",
+        icon: "error",
+        confirmButtonText: "Ok",
+        timer: "5000",
+        position: "top",
+        background: "black",
+        color: "white",
+      });
     }
   };
 
