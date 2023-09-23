@@ -13,9 +13,6 @@ export const Register = () => {
         email : "",
         password : "",
         information : false,
-        contactInfo : "",
-        frecuentPlace : "",
-        paymentMethod : ""
     })
     
     const isPasswordValid = (password) => {

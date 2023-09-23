@@ -5,8 +5,9 @@ import { Register } from "./components/Register";
 import { ProtectedRoutes } from "./services/ProtectedRoutes";
 import './App.css'
 import Navbar from "./components/Navbar";
-import Edit from "./components/Edit";
 import Aside from "./components/Aside";
+import EditName from "./components/EditName"
+import EditEmail from "./components/EditEmail"
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
         {/* protected routes */}
         <Route path="/" element={<> <Navbar /> <Aside /> <ProtectedRoutes /> </>}>
           <Route path="/" element={<Home />} />
-          <Route path="/edit" element={<Edit />} />
+          <Route path="/editname" element={<EditName />} />
+          <Route path="/editemail" element={<EditEmail />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,65 @@
+.container-edit-name {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.container-info {
+  margin-left: 1rem; /* Utilizamos una unidad relativa para el margen */
+  margin-bottom: 2rem;
+}
+
+.container-info p {
+  font-size: small;
+}
+
+.container-edit-name input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem; /* Espacio entre los inputs ajustado */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-save-name {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 0.4em 2.8em; /* Ajuste del padding para hacerlo más adaptable */
+  background-color: #0978EA;
+  color: white;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  width: 65%; /* Ancho del 100% para adaptarse al contenedor */
+  margin-left: 1rem; /* Utilizamos una unidad relativa para el margen */
+  text-align: center;
+}
+
+.btn-save-name:hover {
+  border-color: white;
+  background-color: #085fa3;
+  color: white;
+}
+
+.warnings {
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  color: #B06AB3;
+  padding-top: 20px;
+}
+
+/* Regla de medios para dispositivos de pantalla más pequeña */
+@media (max-width: 768px) {
+  .container-edit-name {
+    text-align: center; /* Centra el contenido en pantallas pequeñas */
+  }
+  
+  .container-info {
+    margin-left: 0; /* Elimina el margen en pantallas pequeñas */
+  }
+  
+  .btn-save-name {
+    width: 70%; /* Ancho del 100% en pantallas pequeñas */
+    margin-left: 0px;
+  }
+}
