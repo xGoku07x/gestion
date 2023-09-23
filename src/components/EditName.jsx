@@ -21,18 +21,31 @@ export default function Editnombre() {
     setUserData({ ...userData, [name]: value });
   };
 
+  const [error, setError] = useState("");
+  const [error2, setError2] = useState("");
+
   const handleSave = () => {
-    if (!userData.name || !userData.lastname) {
-      Swal.fire({
-        title: "Error!",
-        text: "Los campos no pueden estar vacíos",
-        icon: "error",
-        confirmButtonText: "Ok",
-        timer: "5000",
-        position: "top",
-        background: "black",
-        color: "white",
-      });
+    if (!userData.name && !userData.lastname) {
+      setError("El campo no puede estar vacio");
+      setError2("El campo no puede estar vacio");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      setTimeout(() => {
+        setError2("");
+      }, 5000);
+      return;
+    } else if (!userData.name) {
+      setError("El campo no puede estar vacio");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return;
+    } else if (!userData.lastname) {
+      setError2("El campo no puede estar vacio");
+      setTimeout(() => {
+        setError2("");
+      }, 5000);
       return;
     }
 
@@ -43,8 +56,7 @@ export default function Editnombre() {
       return user;
     });
     Swal.fire({
-      title: "Exito!",
-      text: "El nombre se ha actualizado exitosamente",
+      text: "Los cambios se han realizado con éxito",
       icon: "success",
       confirmButtonText: "Ok",
       timer: "5000",
@@ -72,6 +84,7 @@ export default function Editnombre() {
               value={userData.name}
               onChange={handleInputChange}
             />
+            {error && <div className="error">{error}</div>}
           </div>
           <div>
             <h4>Apellidos</h4>
@@ -81,6 +94,7 @@ export default function Editnombre() {
               value={userData.lastname}
               onChange={handleInputChange}
             />
+            {error2 && <div className="error">{error2}</div>}
           </div>
         </div>
       </div>

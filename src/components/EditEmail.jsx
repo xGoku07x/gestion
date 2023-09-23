@@ -15,6 +15,8 @@ export default function Editnombre() {
     }
   );
 
+  const [error, setError] = useState("")
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
@@ -27,28 +29,15 @@ export default function Editnombre() {
     );
 
     if (isEmailExist && loggedInUser && loggedInUser.email !== userData.email) {
-      Swal.fire({
-        title: "Error!",
-        text: "El correo ya esta asociado a otra cuenta",
-        icon: "error",
-        confirmButtonText: "Ok",
-        timer: "5000",
-        position: "top",
-        background: "black",
-        color: "white",
-      });
+      setError("El correo ya esta asociado a otra cuenta")
+      setTimeout(() => {
+        setError("");
+      }, 5000)
     } else if (!userData.email) {
-      Swal.fire({
-        title: "Error!",
-        text: "Los campos no pueden estar vacíos",
-        icon: "error",
-        confirmButtonText: "Ok",
-        timer: "5000",
-        position: "top",
-        background: "black",
-        color: "white",
-      });
-      return;
+      setError("El campo no puede estar vacio")
+      setTimeout(() => {
+        setError("");
+      }, 5000)
     } else {
       const updatedUsers = users.map((user) => {
         if (user.id === loggedInUserId) {
@@ -59,8 +48,7 @@ export default function Editnombre() {
 
       localStorage.setItem("users", JSON.stringify(updatedUsers));
       Swal.fire({
-        title: "Exito!",
-        text: "El correo se ha actualizado exitosamente",
+        text: "Los cambios se han realizado con éxito",
         icon: "success",
         confirmButtonText: "Ok",
         timer: "5000",
@@ -86,6 +74,7 @@ export default function Editnombre() {
             value={userData.email}
             onChange={handleInputChange}
           />
+          {error && <div className="error">{error}</div>}
         </div>
       </div>
       <button onClick={handleSave} className="btn-save-email">

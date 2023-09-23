@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   text-align: left;
+  position: relative;
 }
 
 .container-info {
@@ -32,6 +33,7 @@
   width: 100%; /* Ancho del 100% para adaptarse al contenedor */
   margin-left: 1rem; /* Utilizamos una unidad relativa para el margen */
   text-align: center;
+  margin-top: 12px;
 }
 
 .btn-save-name:hover {
@@ -40,12 +42,11 @@
   color: white;
 }
 
-.warnings {
-  width: 200px;
-  text-align: center;
-  margin: auto;
-  color: #B06AB3;
-  padding-top: 20px;
+.error {
+  color: red; /* Color de texto rojo */
+  position: absolute; /* Posición absoluta para superponerlo en el input */
+  font-size: 14px;
+  white-space: nowrap;
 }
 
 /* Regla de medios para dispositivos de pantalla más pequeña */
