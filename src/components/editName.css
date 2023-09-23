@@ -6,7 +6,7 @@
 }
 
 .container-info {
-  margin-left: 1rem; /* Utilizamos una unidad relativa para el margen */
+  margin-left: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -17,7 +17,7 @@
 .container-edit-name input {
   width: 100%;
   padding: 0.5rem;
-  margin-bottom: 1rem; /* Espacio entre los inputs ajustado */
+  margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -25,13 +25,13 @@
 .btn-save-name {
   border-radius: 10px;
   border: 1px solid transparent;
-  padding: 0.4em 2.8em; /* Ajuste del padding para hacerlo más adaptable */
-  background-color: #0978EA;
+  padding: 0.4em 2.8em;
+  background-color: #0978ea;
   color: white;
   cursor: pointer;
   transition: border-color 0.25s;
-  width: 100%; /* Ancho del 100% para adaptarse al contenedor */
-  margin-left: 1rem; /* Utilizamos una unidad relativa para el margen */
+  width: 100%;
+  margin-left: 1rem;
   text-align: center;
   margin-top: 12px;
 }
@@ -43,8 +43,8 @@
 }
 
 .error {
-  color: red; /* Color de texto rojo */
-  position: absolute; /* Posición absoluta para superponerlo en el input */
+  color: red;
+  position: absolute;
   font-size: 14px;
   white-space: nowrap;
 }
@@ -52,15 +52,15 @@
 /* Regla de medios para dispositivos de pantalla más pequeña */
 @media (max-width: 768px) {
   .container-edit-name {
-    text-align: center; /* Centra el contenido en pantallas pequeñas */
+    text-align: center;
   }
-  
+
   .container-info {
-    margin-left: 0; /* Elimina el margen en pantallas pequeñas */
+    margin-left: 0;
   }
-  
+
   .btn-save-name {
-    width: 70%; /* Ancho del 100% en pantallas pequeñas */
+    width: 107%;
     margin-left: 0px;
   }
 }

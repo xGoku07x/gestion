@@ -21,8 +21,8 @@ export const Home = () => {
           <div className='info-user'>
             <p>
               {loggedInUser.name} {loggedInUser.lastname}
-              <Link to={"/editname"} className='btn-edit'><img src="/src/assets/mayor.png" alt="" /></Link>
             </p>
+            <Link to={"/editname"} className='btn-edit'><img src="/src/assets/mayor.png" alt="" /></Link>
           </div>
         </div>
         <div>
@@ -30,8 +30,8 @@ export const Home = () => {
           <div className='info-user'>
             <p>
               {loggedInUser.email}
-              <Link to={"/editemail"} className='btn-edit'><img src="/src/assets/mayor.png" alt="" /></Link>
             </p>
+            <Link to={"/editemail"} className='btn-edit'><img src="/src/assets/mayor.png" alt="" /></Link>
           </div>
         </div>
       </div>

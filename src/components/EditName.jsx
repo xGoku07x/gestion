@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import "./editName.css";
 import Swal from "sweetalert2";
 
-export default function Editnombre() {
+export default function EditName() {
+  
   const navigate = useNavigate();
   const loggedInUserId = localStorage.getItem("loggedin");
   const users = JSON.parse(localStorage.getItem("users")) || [];

@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import "./editEmail.css";
 import Swal from "sweetalert2";
 
-export default function Editnombre() {
+export default function EditEmail() {
+  
   const navigate = useNavigate();
   const loggedInUserId = localStorage.getItem("loggedin");
   const users = JSON.parse(localStorage.getItem("users")) || [];
@@ -15,7 +16,7 @@ export default function Editnombre() {
     }
   );
 
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,15 +30,15 @@ export default function Editnombre() {
     );
 
     if (isEmailExist && loggedInUser && loggedInUser.email !== userData.email) {
-      setError("El correo ya esta asociado a otra cuenta")
+      setError("El correo ya esta asociado a otra cuenta");
       setTimeout(() => {
         setError("");
-      }, 5000)
+      }, 5000);
     } else if (!userData.email) {
-      setError("El campo no puede estar vacio")
+      setError("El campo no puede estar vacio");
       setTimeout(() => {
         setError("");
-      }, 5000)
+      }, 5000);
     } else {
       const updatedUsers = users.map((user) => {
         if (user.id === loggedInUserId) {

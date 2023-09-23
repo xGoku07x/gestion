@@ -1,16 +1,12 @@
-html{
-  overflow: auto;
-}
-
 .section-register {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
 }
 
-.form-register{
-  display:flex;
+.form-register {
+  display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -38,7 +34,7 @@ html{
 }
 
 label {
-  font-size: .7em;
+  font-size: 0.7em;
   padding-right: 110px;
   color: rgb(72, 72, 72);
   position: relative;
@@ -71,7 +67,7 @@ input[type="checkbox"]:checked + label::before {
 }
 
 .redirect-login {
-  margin-top: -1.5rem!important ;
+  margin-top: -1.5rem !important ;
 }
 
 p {

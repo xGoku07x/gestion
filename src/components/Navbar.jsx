@@ -41,7 +41,6 @@ export default function Navbar() {
                 />
                 <div className="dropdown-content">
                     <Link to="/">Información de la cuenta</Link>
-                    <Link to="/edit">Editar cuenta</Link>
                     <button onClick={handleLogout}>Cerrar sesión</button>
                 </div>
             </div>
