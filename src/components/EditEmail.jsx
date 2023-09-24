@@ -29,6 +29,18 @@ export default function EditEmail() {
       (user) => user.email === userData.email
     );
 
+    if (userData.email !== "") {
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,5}$/;
+
+      if (!userData.email.match(emailRegex)) {
+        setError("El formato del correo electrónico no es válido");
+        setTimeout(() => {
+          setError("");
+        }, 5000);
+        return;
+      }
+    }
+
     if (isEmailExist && loggedInUser && loggedInUser.email !== userData.email) {
       setError("El correo ya esta asociado a otra cuenta");
       setTimeout(() => {

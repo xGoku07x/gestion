@@ -19,6 +19,10 @@ export default function EditName() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    const alphabeticRegex = /^[A-Za-z\s]*$/;
+    if (!value.match(alphabeticRegex)) {
+      return;
+    }
     setUserData({ ...userData, [name]: value });
   };
 
