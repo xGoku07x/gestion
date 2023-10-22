@@ -74,6 +74,8 @@
   border-radius: 10px;
 }
 
+
+/* importante */
 .dropdown:hover .dropdown-content {
   display: block;
 }

@@ -74,16 +74,17 @@ export default function EditName() {
   };
 
   return (
-    <section className="container-edit-name">
-      <div className="container-info">
+    <section className="flex flex-col text-left relative md:text-center">
+      <div className="ml-4 mb-8 lg:ml-0 md:ml-0 sm:ml-0 ml-4">
         <div>
           <h1>Nombre</h1>
-          <p>Con este nombre te veran las personas</p>
+          <p className="text-sm mb-4">Con este nombre te veran las personas</p>
         </div>
         <div>
           <div>
             <h4>Nombres</h4>
             <input
+              className="w-full p-2 mb-4 border border-solid border-gray-300 rounded-md"
               type="text"
               name="name"
               value={userData.name}
@@ -94,16 +95,17 @@ export default function EditName() {
           <div>
             <h4>Apellidos</h4>
             <input
+              className="w-full p-2 mb-4 border border-solid border-gray-300 rounded-md"
               type="text"
               name="lastname"
               value={userData.lastname}
               onChange={handleInputChange}
             />
-            {error2 && <div className="error">{error2}</div>}
+            {error2 && <div className="text-red-500 absolute text-sm whitespace-nowrap">{error2}</div>}
           </div>
         </div>
       </div>
-      <button onClick={handleSave} className="btn-save-name">
+      <button onClick={handleSave} className="btn-save-name rounded-lg border border-transparent px-4 py-1.5 bg-blue-500 text-white cursor-pointer transition duration-250 w-108% ml-4 text-center mt-3 hover:border-white hover:bg-blue-900 hover:text-white">
         Actualizar
       </button>
     </section>

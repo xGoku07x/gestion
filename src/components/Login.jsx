@@ -47,10 +47,11 @@ export const Login = () => {
   };
 
   return (
-    <section className="section-login">
+    <section className="flex flex-col items-center gap-4">
       <h1>Iniciar sesión</h1>
-      <form className="form-login" onSubmit={handleLogin}>
+      <form className="form-login  flex flex-col items-center gap-4" onSubmit={handleLogin}>
         <input
+        className="w-full p-2 mb-2 border border-gray-300 rounded-md"
           type="email"
           placeholder="Correo electrónico"
           name="email"
@@ -63,6 +64,7 @@ export const Login = () => {
           }
         />
         <input
+          className="w-full p-2 mb-2 border border-gray-300 rounded-md"
           type="password"
           placeholder="Contraseña"
           name="password"
@@ -76,7 +78,7 @@ export const Login = () => {
         />
         <button>Ingresar</button>
       </form>
-      <div className="redirect-register">
+      <div className="mt-neg-6">
         <p>¿No tienes cuenta?</p>
         <Link to="/register">Registrarse!</Link>
       </div>

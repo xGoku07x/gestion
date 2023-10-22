@@ -74,23 +74,24 @@ export default function EditEmail() {
   };
 
   return (
-    <section className="container-edit-email">
-      <div className="container-info">
+    <section className="flex flex-col text-left relative md:text-center">
+      <div className="ml-4 mb-8 lg:ml-0 md:ml-0 sm:ml-0 ml-4">
         <div>
           <h1>Correo electrónico</h1>
-          <p>Personaliza tu experiencia</p>
+          <p className="text-sm mb-4">Personaliza tu experiencia</p>
         </div>
         <div>
           <input
+            className="w-full p-2 mb-4 border border-solid border-gray-300 rounded-md"
             type="email"
             name="email"
             value={userData.email}
             onChange={handleInputChange}
           />
-          {error && <div className="error">{error}</div>}
+          {error && <div className="text-red-500 absolute text-sm whitespace-nowrap">{error}</div>}
         </div>
       </div>
-      <button onClick={handleSave} className="btn-save-email">
+      <button onClick={handleSave} className="rounded-lg border border-transparent px-4 py-1.5 bg-blue-500 text-white cursor-pointer transition duration-250 w-108% ml-4 text-center mt-3 hover:border-white hover:bg-blue-900 hover:text-white">
         Actualizar
       </button>
     </section>
