@@ -1,6 +1,7 @@
 import './navbar.css'
+import '../app.css'
 import { Link, useNavigate } from 'react-router-dom'
-
+import '../app.css'
 export default function Navbar() {
 
     const navigate = useNavigate()
@@ -24,7 +25,7 @@ export default function Navbar() {
             <input
             type="text"
             placeholder="Buscar en SSMU"
-            className="    search-bar    w-72 p-2 pl-10 bg-gray-300 rounded-lg text-base bg-no-repeat bg-center bg-lupa"
+            className="search-bar  w-72 p-2 pl-10 bg-gray-300 rounded-lg text-base bg-no-repeat bg-center bg-lupa"
             />
         </div>
         <div className="navbar-right flex mr-10">

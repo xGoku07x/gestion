@@ -1,4 +1,4 @@
-import './aside.css'
+import '../app.css'
 
 export default function Asaid() {
   return (

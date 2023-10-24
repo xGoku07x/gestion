@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import './register.css'
 import Swal from 'sweetalert2'
-
+import '../app.css'
 export const Register = () => {
 
     const navigate = useNavigate()
@@ -112,8 +112,8 @@ export const Register = () => {
   return (
     <section className="flex flex-col items-center gap-4">
         <h1>Crea tu perfil</h1>
-        <form className="flex justify-center flex-col items-center gap-4" onSubmit={handleSubmit}>
-            <div className=" flex gap-4 w-screen flex-wrap">
+        <form className="flex justify-center flex-col items-center gap-4 w-96" onSubmit={handleSubmit}>
+            <div className="w-96 flex gap-4 w-screen flex-wrap">
                 <input className="flex-1 pl-4" type="text" placeholder="Nombre*" name="name" value={input.name} onChange={(e) => setInput({...input,[e.target.name] : e.target.value,})} />
                 <input className="flex-1 pl-4" type="text" placeholder="Apellidos*" name="lastname" value={input.lastname} onChange={(e) => setInput({...input,[e.target.name] : e.target.value,})} />
             </div>
@@ -124,7 +124,7 @@ export const Register = () => {
                 <input className="absolute opacity-0 m-10" type="checkbox" id="information" name="information" checked={input.information} onChange={(e) => setInput({...input,[e.target.name] : e.target.checked,})} />
                 <label className="text-xs pr-28 text-gray-72 relative pl-8" htmlFor="information">Me gustaria recibir información, promociones y novedades <br /> relacionadas con la plataforma</label>
             </div>
-            <button>Registrarme</button>
+            <button className="mb-4">Registrarme</button>
         </form>
         <div className="redirect-login">
             <p>¿Ya tienes una cuenta?</p>

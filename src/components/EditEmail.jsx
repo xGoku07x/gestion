@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
-import "./editEmail.css";
 import Swal from "sweetalert2";
-
+import '../app.css'
 export default function EditEmail() {
   
   const navigate = useNavigate();

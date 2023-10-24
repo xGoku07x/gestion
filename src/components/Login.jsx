@@ -1,4 +1,4 @@
-import "./login.css";
+import '../app.css'
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import Swal from "sweetalert2";
@@ -51,7 +51,7 @@ export const Login = () => {
       <h1>Iniciar sesión</h1>
       <form className="form-login  flex flex-col items-center gap-4" onSubmit={handleLogin}>
         <input
-        className="w-full p-2 mb-2 border border-gray-300 rounded-md"
+        className="w-full p-2 mb-4 border border-gray-300 rounded-md block"
           type="email"
           placeholder="Correo electrónico"
           name="email"
