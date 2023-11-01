@@ -75,13 +75,13 @@ export default function EditName() {
   return (
     <section className="flex flex-col text-left relative md:text-center">
       <div className="ml-4 mb-8 lg:ml-0 md:ml-0 sm:ml-0 ml-4">
-        <div>
-          <h1>Nombre</h1>
+        <div className="text-left">
+          <h1 className="font-bold">Nombre</h1>
           <p className="text-sm mb-4">Con este nombre te veran las personas</p>
         </div>
         <div>
-          <div>
-            <h4>Nombres</h4>
+          <div className="text-left"> 
+            <h4 className="mb-4 font-bold">Nombres</h4>
             <input
               className="w-full p-2 mb-4 border border-solid border-gray-300 rounded-md"
               type="text"
@@ -91,8 +91,8 @@ export default function EditName() {
             />
             {error && <div className="error">{error}</div>}
           </div>
-          <div>
-            <h4>Apellidos</h4>
+          <div className="text-left">
+            <h4 className="mb-4 font-bold">Apellidos</h4>
             <input
               className="w-full p-2 mb-4 border border-solid border-gray-300 rounded-md"
               type="text"

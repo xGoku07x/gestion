@@ -75,8 +75,8 @@ export default function EditEmail() {
   return (
     <section className="flex flex-col text-left relative md:text-center">
       <div className="ml-4 mb-8 lg:ml-0 md:ml-0 sm:ml-0 ml-4">
-        <div>
-          <h1>Correo electrónico</h1>
+        <div className="text-left">
+          <h1 className="mb-4 font-bold">Correo electrónico</h1>
           <p className="text-sm mb-4">Personaliza tu experiencia</p>
         </div>
         <div>

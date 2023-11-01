@@ -113,7 +113,7 @@ export const Register = () => {
     <section className="flex flex-col items-center gap-4">
         <h1>Crea tu perfil</h1>
         <form className="flex justify-center flex-col items-center gap-4 w-96" onSubmit={handleSubmit}>
-            <div className="w-96 flex gap-4 w-screen flex-wrap">
+            <div className="w-96 flex gap-4 flex-wrap">
                 <input className="flex-1 pl-4" type="text" placeholder="Nombre*" name="name" value={input.name} onChange={(e) => setInput({...input,[e.target.name] : e.target.value,})} />
                 <input className="flex-1 pl-4" type="text" placeholder="Apellidos*" name="lastname" value={input.lastname} onChange={(e) => setInput({...input,[e.target.name] : e.target.value,})} />
             </div>
